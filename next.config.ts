@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import path from "path";
 
 // Bank-Level Security Headers
 const ContentSecurityPolicy = `
@@ -52,6 +53,7 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  outputFileTracingRoot: path.join(__dirname),
   headers: async () => [
     {
       source: '/:path*',

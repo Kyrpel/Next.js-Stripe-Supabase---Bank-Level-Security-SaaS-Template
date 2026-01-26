@@ -10,7 +10,7 @@ Click the **"Fork"** button on GitHub to create your own copy.
 ### 2. Clone Your Fork
 ```bash
 git clone https://github.com/YOUR_USERNAME/launch-mvp-stripe-nextjs-supabase.git
-cd launch-mvp-stripe-nextjs-supabase
+cd a
 ```
 
 ### 3. Install Dependencies

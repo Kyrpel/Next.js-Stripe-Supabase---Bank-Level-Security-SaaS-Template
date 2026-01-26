@@ -3,39 +3,47 @@
 @tailwind utilities;
 
 :root {
-  --background: #F8F9FA;
-  --foreground: #2F3E46;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1A1B26;
-    --foreground: #F8F9FA;
-  }
+  /* Trust-focused color system */
+  --primary: #1E3A5F;           /* Deep Navy */
+  --primary-light: #2C5282;
+  --primary-dark: #1A2F4F;
+  
+  --accent: #3B82F6;            /* Steel Blue */
+  --accent-light: #60A5FA;
+  --accent-dark: #2563EB;
+  
+  --success: #047857;           /* Forest Green */
+  --success-light: #059669;
+  
+  --background: #0D1117;        /* Slate Black */
+  --surface: #161B22;
+  --surface-light: #1F2937;
+  
+  --foreground: #E5E7EB;        /* Cool White */
+  --text-secondary: #9CA3AF;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, sans-serif;
+  letter-spacing: -0.01em;
 }
 
-/* Add some cooking-themed utility classes */
 @layer components {
-  .recipe-card {
-    @apply bg-white dark:bg-neutral-dark rounded-lg shadow-sm border border-primary/10 dark:border-primary/20 transition-all duration-300 hover:shadow-md;
+  .trust-card {
+    @apply bg-[#161B22] rounded-lg border border-white/10 hover:border-[#3B82F6]/50 transition-all duration-300;
   }
   
-  .cooking-button {
-    @apply bg-primary hover:bg-primary-dark text-white rounded-lg transition-all duration-300 transform hover:scale-102 active:scale-98;
+  .secure-button {
+    @apply bg-[#1E3A5F] hover:bg-[#2C5282] text-white font-medium px-6 py-3 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl;
   }
   
   .accent-button {
-    @apply bg-secondary hover:bg-secondary-dark text-white rounded-lg transition-all duration-300;
+    @apply bg-[#3B82F6] hover:bg-[#2563EB] text-white font-medium px-6 py-3 rounded-lg transition-all duration-200;
   }
 }
 
-/* Hide scrollbar styles */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
