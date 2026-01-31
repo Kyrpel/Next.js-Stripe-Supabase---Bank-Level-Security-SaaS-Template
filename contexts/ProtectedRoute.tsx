@@ -19,15 +19,21 @@ export default function ProtectedRoute({ children }: { children: React.ReactNode
   const { user, isLoading } = useAuth();
   // const router = useRouter();
   const pathname = usePathname();
+  const isPublicRoute = PUBLIC_ROUTES.includes(pathname);
 
   useEffect(() => {
-    if (!isLoading && !user && !PUBLIC_ROUTES.includes(pathname)) {
+    if (!isLoading && !user && !isPublicRoute) {
       const redirectUrl = `/login?redirect=${encodeURIComponent(pathname)}`;
       window.location.assign(redirectUrl);
     }
-  }, [user, isLoading, pathname]);
+  }, [user, isLoading, pathname, isPublicRoute]);
 
-  // Show loading state only if actually loading
+  // For public routes, render immediately without waiting for auth
+  if (isPublicRoute) {
+    return <>{children}</>;
+  }
+
+  // Show loading state only if actually loading AND it's a protected route
   if (isLoading) {
     return (
       <div className="min-h-screen flex flex-col space-y-4 items-center justify-center">
@@ -37,8 +43,8 @@ export default function ProtectedRoute({ children }: { children: React.ReactNode
     );
   }
 
-  // Only render children if we're on a public route or user is authenticated
-  if (PUBLIC_ROUTES.includes(pathname) || user) {
+  // Only render children if user is authenticated
+  if (user) {
     return <>{children}</>;
   }
 

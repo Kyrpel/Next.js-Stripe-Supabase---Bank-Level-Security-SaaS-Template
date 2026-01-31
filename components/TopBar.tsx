@@ -54,7 +54,7 @@ export default function TopBar() {
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
         <Link href="/" className="text-md sm:text-lg font-semibold text-[#E5E7EB] flex items-center gap-2 hover:opacity-80 transition-opacity">
           <Shield className="w-6 h-6 text-[#3B82F6]" />
-          <span className="font-sans">SecureStack</span>
+          <span className="font-rajdhani uppercase font-bold tracking-wide">SecureStack</span>
         </Link>
 
         <div className="flex items-center gap-4">

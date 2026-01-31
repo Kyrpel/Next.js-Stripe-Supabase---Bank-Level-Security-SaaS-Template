@@ -58,7 +58,7 @@ export default function LandingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl sm:text-6xl lg:text-7xl font-bold text-center text-[#E5E7EB] tracking-tight mb-6"
+            className="text-5xl sm:text-6xl lg:text-7xl font-bold text-center text-[#E5E7EB] tracking-tight mb-6 font-rajdhani uppercase"
           >
             Secure SaaS Template
           </motion.h1>
@@ -119,7 +119,7 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#E5E7EB] mb-4">Built on Proven Technology</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#E5E7EB] mb-4 font-rajdhani uppercase">Built on Proven Technology</h2>
             <p className="text-lg text-[#9CA3AF]">Industry-standard tools and frameworks</p>
           </motion.div>
 
@@ -155,7 +155,7 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#E5E7EB] mb-4">Simple, Transparent Pricing</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#E5E7EB] mb-4 font-rajdhani uppercase">Simple, Transparent Pricing</h2>
           </motion.div>
           <PricingSection />
         </div>
@@ -170,7 +170,7 @@ export default function LandingPage() {
             viewport={{ once: true }}
           >
             <Shield className="w-16 h-16 text-[#3B82F6] mx-auto mb-6" />
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#E5E7EB] mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#E5E7EB] mb-4 font-rajdhani uppercase">
               Launch Your SaaS with Confidence
             </h2>
             <p className="text-lg text-[#9CA3AF] mb-8">

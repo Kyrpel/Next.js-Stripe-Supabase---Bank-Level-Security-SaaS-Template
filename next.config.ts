@@ -53,7 +53,7 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
-  outputFileTracingRoot: path.join(__dirname),
+  outputFileTracingRoot: path.resolve(__dirname),
   headers: async () => [
     {
       source: '/:path*',

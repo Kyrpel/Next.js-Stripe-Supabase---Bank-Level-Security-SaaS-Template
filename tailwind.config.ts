@@ -9,11 +9,14 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        rajdhani: ['var(--font-rajdhani)', 'sans-serif'],
+      },
       colors: {
         primary: {
-          DEFAULT: '#A78BFA', // Violet-400: Soft lavender
-          light: '#C4B5FD',   // Violet-300: Light lavender
-          dark: '#8B5CF6',    // Violet-500: Medium lavender
+          DEFAULT: '#1E3A5F', // Deep Navy
+          light: '#2C5282',   // Light Navy
+          dark: '#1A2F4F',    // Dark Navy
         },
         danger: {
           DEFAULT: '#DC2626', // Red-600: Clear red
@@ -42,7 +45,7 @@ export default {
       },
       boxShadow: {
         'subtle': '0 1px 3px rgba(0,0,0,0.05)',
-        'hover': '0 4px 6px -1px rgba(139, 92, 246, 0.1), 0 2px 4px -1px rgba(139, 92, 246, 0.06)', // Softer violet shadow
+        'hover': '0 4px 6px -1px rgba(30, 58, 95, 0.1), 0 2px 4px -1px rgba(30, 58, 95, 0.06)', // Deep Navy shadow
       }
     },
   },

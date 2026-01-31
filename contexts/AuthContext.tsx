@@ -78,14 +78,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     let mounted = true;
-    console.log("AuthContext - mounted useEffect:", mounted);
+    let subscription: { unsubscribe: () => void } | null = null;
     
     const initializeAuth = async () => {
       try {
         setIsLoading(true);
-        console.log("AuthContext - Starting Try in InitializeAuth!");
 
-        // // First, get initial session
+        // Get initial session (non-blocking for public routes)
         const { data: { session }, error } = await supabase.auth.getSession();
         
         if (error || !mounted) {
@@ -93,17 +92,21 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           return;
         }
 
-        // Update initial state
+        // Update initial state immediately
         setSession(session);
         const currentUser = session?.user ?? null;
         setUser(currentUser);
 
+        // Set loading to false immediately so public routes can render
+        if (mounted) setIsLoading(false);
+
+        // Check subscription in background (non-blocking)
         if (currentUser) {
-          await checkSubscription(currentUser.id);
+          checkSubscription(currentUser.id).catch(console.error);
         }
         
-        // Then set up listener for future changes
-        const { data: { subscription } } = supabase.auth.onAuthStateChange(
+        // Set up listener for future changes
+        const { data: { subscription: authSubscription } } = supabase.auth.onAuthStateChange(
           async (_event, newSession) => {
             if (!mounted) return;
             
@@ -112,20 +115,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             setUser(newUser);
             
             if (newUser) {
-              await checkSubscription(newUser.id);
+              checkSubscription(newUser.id).catch(console.error);
             } else {
               setIsSubscriber(false);
             }
           }
         );
-
-        // Only set loading to false after everything is initialized
-        if (mounted) setIsLoading(false);
         
-        return () => {
-          mounted = false;
-          subscription.unsubscribe();
-        };
+        subscription = authSubscription;
       } catch (error) {
         console.error("Auth initialization error:", error);
         if (mounted) setIsLoading(false);
@@ -133,6 +130,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     };
 
     initializeAuth();
+    
+    return () => {
+      mounted = false;
+      if (subscription) {
+        subscription.unsubscribe();
+      }
+    };
   }, [checkSubscription]);
 
   const value = {

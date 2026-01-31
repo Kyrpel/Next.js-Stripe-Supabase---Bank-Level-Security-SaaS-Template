@@ -18,9 +18,10 @@ export const aj = arcjet({
     tokenBucket({
       mode: "LIVE",
       characteristics: ["ip.src"],
-      refillRate: 10, // 10 tokens per interval
-      interval: 60, // 60 seconds
-      capacity: 100, // Max 100 requests per minute
+      refillRate: 10,
+      interval: 60,
+      capacity: 100,
+      requested: 1,
     }),
   ],
 });
@@ -34,9 +35,10 @@ export const ajStrict = arcjet({
     tokenBucket({
       mode: "LIVE",
       characteristics: ["ip.src"],
-      refillRate: 5, // 5 tokens per interval
-      interval: 60, // 60 seconds
-      capacity: 20, // Max 20 requests per minute
+      refillRate: 5,
+      interval: 60,
+      capacity: 20,
+      requested: 1,
     }),
   ],
 });
@@ -50,9 +52,10 @@ export const ajAuth = arcjet({
     tokenBucket({
       mode: "LIVE",
       characteristics: ["ip.src"],
-      refillRate: 3, // 3 attempts
-      interval: 300, // per 5 minutes
-      capacity: 5, // Max 5 attempts
+      refillRate: 3,
+      interval: 300,
+      capacity: 5,
+      requested: 1,
     }),
   ],
 });
