@@ -15,8 +15,8 @@ import {
 
 // Email sender configuration.
 // Update this to your verified domain in Resend.
-// For this tutorial, we use seanchen.io which is verified in Resend.
-const EMAIL_FROM = 'LaunchMVP <startup@seanchen.io>';
+// Set to your verified domain in Resend (e.g. noreply@yourdomain.com).
+const EMAIL_FROM = process.env.EMAIL_FROM ?? 'LaunchMVP <noreply@yourdomain.com>';
 
 // Lazy initialization of Resend client to avoid build errors.
 let resendClient: Resend | null = null;

@@ -164,8 +164,8 @@ export function CancellationConfirmationEmail({
             Discord community
           </Link>
           {' • '}
-          <Link href="https://www.youtube.com/@SeanAIStories" style={styles.footerLink}>
-            YouTube tutorials
+          <Link href="https://yourdomain.com" style={styles.footerLink}>
+            Help & support
           </Link>
         </Text>
       </Section>

@@ -103,7 +103,7 @@ export function WelcomeEmail({
           &ldquo;The best time to launch was yesterday. The second best time is today.&rdquo;
         </Text>
         <Hr style={styles.quoteDivider} />
-        <Text style={styles.quoteName}>Sean Chen</Text>
+        <Text style={styles.quoteName}>The Team</Text>
         <Text style={styles.quoteRole}>Creator of LaunchMVP</Text>
       </Section>
     </EmailLayout>

@@ -117,9 +117,7 @@ New to contributing? Look for issues labeled:
 
 - **GitHub Issues** - For bugs and feature requests
 - **GitHub Discussions** - For questions and ideas
-- **YouTube** - [@SeanAIStories](https://www.youtube.com/@SeanAIStories)
 - **X/Twitter** - [@yourusername](https://x.com/yourusername)
-- **Discord** - [Join our community](https://discord.com/invite/TKKPzZheua)
 
 ---
 

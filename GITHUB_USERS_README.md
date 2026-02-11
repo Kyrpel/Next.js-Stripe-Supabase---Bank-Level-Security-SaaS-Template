@@ -411,7 +411,7 @@ Built with:
 
 Security hardening by: [Your Name/Team]
 
-Original template by: [ShenSeanChen](https://github.com/ShenSeanChen)
+Template — customize with your repo and links.
 
 ---
 

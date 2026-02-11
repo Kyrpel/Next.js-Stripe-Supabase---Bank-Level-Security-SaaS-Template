@@ -20,12 +20,12 @@ export default function EmailPreviewPage() {
 
   // Sample data for previews - using the actual Vercel URL
   const welcomeData = {
-    userName: 'Sean',
+    userName: 'User',
     dashboardUrl: 'https://my-full-stack-app-iota.vercel.app/dashboard',
   };
 
   const billingData = {
-    firstName: 'Sean',
+    firstName: 'User',
     tierName: 'Pro',
     firstChargeDate: 'February 16, 2026',
     dashboardUrl: 'https://my-full-stack-app-iota.vercel.app/dashboard',
@@ -33,7 +33,7 @@ export default function EmailPreviewPage() {
   };
 
   const cancellationData = {
-    firstName: 'Sean',
+    firstName: 'User',
     retentionDays: 14,
     resubscribeUrl: 'https://my-full-stack-app-iota.vercel.app/pay',
   };

@@ -351,7 +351,7 @@ This template includes automated transactional emails using **Supabase Database 
 1. Create account at [resend.com](https://resend.com)
 2. **Verify your domain** at [resend.com/domains](https://resend.com/domains)
    - Add DNS records to your domain
-   - For this tutorial: `seanchen.io` is verified, using `startup@seanchen.io`
+   - Example: verify `yourdomain.com` and use `noreply@yourdomain.com`
 3. Get API key from [resend.com/api-keys](https://resend.com/api-keys)
 4. Add to your `.env.local`:
    ```
@@ -713,18 +713,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Anthropic for Claude AI and Claude Desktop integration
 - MCP framework developers for enabling extended AI capabilities
 
-## 📫 Contact
-
-X - [@yourusername](https://x.com/yourusername)
-
-YouTube - [@SeanAIStories](https://www.youtube.com/@SeanAIStories)
-
-Discord - [@Sean's AI Stories](https://discord.gg/TKKPzZheua)
-
-Instagram - [@SeanAIStories](https://www.instagram.com/sean_ai_stories )
-
-Project Link: [https://github.com/yourusername/launch-stripe-nextjs-supabase](https://github.com/yourusername/launch-stripe-nextjs-supabase)
-
 ## 🚀 Deploy
 
 ### Pre-Deployment Security Check
@@ -759,107 +747,3 @@ npm run pre-deploy  # Runs security-check + build
 2. Add all variables from `.env.local`
 3. Use production API keys (not test keys!)
 
----
-
-## 🛡️ Security & Penetration Testing SaaS
-
-### Can I Use This for a Pentesting SaaS?
-
-**Yes!** This template is specifically hardened for security-focused applications.
-
-### Recommended Security Testing Stack
-
-This template provides the foundation. Add these tools for a complete pentesting SaaS:
-
-#### Core Scanners
-
-1. **OWASP ZAP** - Web application scanner (REST API available)
-2. **Nuclei** - Template-based vulnerability scanner (CLI)
-3. **SQLMap** - SQL injection detection (REST API available)
-4. **Nikto** - Web server scanner (CLI)
-
-#### Backend-Specific Scanners
-
-Build custom scanners for:
-- ✅ Supabase (RLS, exposed keys, storage policies)
-- ✅ Firebase (Firestore rules, RTDB rules, API restrictions)
-- ✅ Appwrite (collection permissions, storage)
-- ✅ PocketBase (collection rules, admin UI exposure)
-
-#### Example Architecture
-
-```
-User submits target URL
-        ↓
-Your SaaS (This Template)
-        ↓
-Job Queue (Redis/Bull)
-        ↓
-    ┌───┴───┐
-    ↓       ↓
-  ZAP     Nuclei
- (API)    (CLI)
-    ↓       ↓
-   SQLMap  Custom
-   (API)   Scanners
-    ↓       ↓
-Results → Database
-        ↓
-User Dashboard
-```
-
-#### Integration Example
-
-```typescript
-// app/api/scan/start/route.ts
-import { withValidation } from '@/lib/api-middleware';
-
-export const POST = withValidation(scanSchema, async (req, data) => {
-  // Queue scanners
-  await queueZAPScan(data.target_url);
-  await queueNucleiScan(data.target_url);
-  await queueCustomBackendScan(data.backend_type);
-  
-  return NextResponse.json({ scan_id: scanJob.id });
-});
-```
-
-See [SECURITY.md](./SECURITY.md) for complete pentesting SaaS implementation guide.
-
----
-
-## 📋 Security Checklist
-
-### Before Launch
-
-- [ ] Run `npm run security-check` and fix all issues
-- [ ] Enable 2FA on Supabase, Stripe, Vercel accounts
-- [ ] Use production API keys (not test keys)
-- [ ] Apply security migration: `001_security_enhancements.sql`
-- [ ] Configure Arcjet rate limiting
-- [ ] Set up monitoring (Sentry recommended)
-- [ ] Review and test all RLS policies
-- [ ] Document incident response plan
-- [ ] Publish Privacy Policy & Terms of Service
-
-### Monthly Maintenance
-
-- [ ] Review security logs (`security_events` table)
-- [ ] Run `npm audit` and update dependencies
-- [ ] Rotate API keys
-- [ ] Test backup restoration
-- [ ] Review rate limit effectiveness
-
----
-
-## 📚 Documentation
-
-- **[SECURITY.md](./SECURITY.md)** - Complete security documentation
-- **[CONTRIBUTING.md](./CONTRIBUTING.md)** - Contribution guidelines
-- **[LICENSE](./LICENSE)** - MIT License
-
----
-
-Made with 🔥 by the community
-
-Security hardening & pentesting guidance added.
