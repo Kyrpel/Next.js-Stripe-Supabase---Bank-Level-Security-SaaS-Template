@@ -203,6 +203,35 @@ const securityChecks: SecurityCheck[] = [
     },
   },
   {
+    name: 'Cloudflare security layer configured',
+    critical: false,
+    check: async () => {
+      const cfConfigPath = path.join(process.cwd(), 'config', 'cloudflare.ts');
+      const cfLibPath = path.join(process.cwd(), 'lib', 'cloudflare.ts');
+
+      if (!fs.existsSync(cfConfigPath) || !fs.existsSync(cfLibPath)) {
+        console.error('   ❌ Cloudflare config or lib files missing');
+        return false;
+      }
+
+      // In production, CLOUDFLARE_ENABLED should be true
+      if (
+        process.env.NODE_ENV === 'production' &&
+        process.env.CLOUDFLARE_ENABLED !== 'true'
+      ) {
+        console.warn(
+          '   ⚠️  CLOUDFLARE_ENABLED is not set to "true" in production'
+        );
+        console.warn(
+          '   Consider enabling Cloudflare proxy for additional security'
+        );
+        return false;
+      }
+
+      return true;
+    },
+  },
+  {
     name: 'Supabase RLS enabled on tables',
     critical: true,
     check: async () => {
