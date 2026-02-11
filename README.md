@@ -1,6 +1,6 @@
 # 🔒 Bank-Level Security SaaS Boilerplate
 
-**Next.js + Stripe + Supabase + Enterprise Security**
+**Next.js + Stripe + Supabase + Cloudflare + Arcjet**
 
 A production-ready, security-hardened SaaS boilerplate with bank-level security features. Perfect for building secure applications including penetration testing platforms, fintech apps, or any SaaS requiring enterprise-grade protection.
 
@@ -38,7 +38,6 @@ This is **THE most secure Next.js SaaS boilerplate on GitHub**. Built specifical
 ✅ **Copy-paste ready** - All API routes included
 
 **Perfect for:**
-- 🛡️ Penetration Testing SaaS
 - 💰 Fintech Applications  
 - 🏥 Healthcare Platforms
 - 🏢 Enterprise SaaS
@@ -645,11 +644,6 @@ Visit [http://localhost:3000/preview-email](http://localhost:3000/preview-email)
 ### What is MCP?
 
 MCP (Model Control Protocol) enables enhanced AI assistant capabilities for this project, allowing the AI to interact directly with your Stripe and Supabase accounts to help with debugging, configuring, and managing your application.
-
-For a comprehensive demonstration of MCP capabilities, check out our dedicated demo repository:
-- 🔗 [launch-mcp-demo](https://github.com/yourusername/launch-mcp-demo) - Collection of powerful MCP tools
-- 📹 [Full YouTube Guide](https://www.youtube.com/watch?v=sfCBCyNyw7U&list=PLE9hy4A7ZTmpGq7GHf5tgGFWh2277AeDR&index=10)
-- 🚀 [X Post](https://x.com/yourusername/status/1910057838032097688)
 
 ### Setting up MCP
 
